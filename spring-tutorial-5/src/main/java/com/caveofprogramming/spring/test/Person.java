@@ -18,6 +18,11 @@ public class Person {
 		
 	}
 	
+	public static Person getInstance(int id, String name) {
+		System.out.println("Creating Person using facotry method.");
+		return new Person(id, name);
+	}
+	
 	public void onCreate() {
 		System.out.println("Person created: " + this);
 	}
