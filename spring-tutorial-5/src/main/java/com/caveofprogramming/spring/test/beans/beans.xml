@@ -6,26 +6,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<bean id="person" class="com.caveofprogramming.spring.test.Person"
-		primary="false" scope="singleton" init-method="onCreate"
-		destroy-method="onDestroy" factory-method="getInstance">
-		<constructor-arg value="777" name="id" type="int"></constructor-arg>
-		<constructor-arg value="Mary" name="name" type="String">
+
+	<bean id="basket"
+		class="com.caveofprogramming.spring.test.FruitBasket">
+		<constructor-arg value="John's basket"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>apple</value>
+				<value>banana</value>
+				<value>orange</value>
+				<value>kiwi</value>
+				<value>orange</value>
+			</list>
 		</constructor-arg>
-		<property value="123" name="taxId">
-		</property>
-		<property name="address" ref="address"></property>
-	</bean>
-
-	<bean id="address" class="com.caveofprogramming.spring.test.Address">
-		<constructor-arg name="street" value="1 Church Lane"></constructor-arg>
-		<constructor-arg name="postcode" value="9876"></constructor-arg>
-	</bean>
-
-	<bean id="address2" class="com.caveofprogramming.spring.test.Address" p:street="23 Vinyard Lane" p:postcode="6789">
-		
-	</bean>
-
-	<bean id="personFactory" class="com.caveofprogramming.spring.test.PersonFactory">
 	</bean>
 </beans>
