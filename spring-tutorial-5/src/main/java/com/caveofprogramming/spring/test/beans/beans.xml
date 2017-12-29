@@ -7,17 +7,32 @@
 
 
 
-	<bean id="basket"
-		class="com.caveofprogramming.spring.test.FruitBasket">
-		<constructor-arg value="John's basket"></constructor-arg>
-		<constructor-arg>
-			<list>
-				<value>apple</value>
-				<value>banana</value>
-				<value>orange</value>
-				<value>kiwi</value>
-				<value>orange</value>
-			</list>
-		</constructor-arg>
+
+	<bean id="jungle"
+		class="com.caveofprogramming.spring.test.Jungle">
+
+	<property name="largest" ref="elephant"></property>
+	<property name="animals">
+		<list>
+			<ref bean="snake" />
+			<ref bean="elephant" />
+			<ref bean="lion" />
+		</list>
+	</property>
+	</bean>
+
+	<bean id="lion" class="com.caveofprogramming.spring.test.Animal">
+		<property name="name" value="Igor"></property>
+		<property name="type" value="lion"></property>
+	</bean>
+	
+	<bean id="elephant" class="com.caveofprogramming.spring.test.Animal">
+		<property name="name" value="Richard"></property>
+		<property name="type" value="elephant"></property>
+	</bean>
+	
+	<bean id="snake" class="com.caveofprogramming.spring.test.Animal">
+		<property name="name" value="Bob"></property>
+		<property name="type" value="snake"></property>
 	</bean>
 </beans>
