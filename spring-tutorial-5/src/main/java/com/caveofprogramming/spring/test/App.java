@@ -14,7 +14,6 @@ public class App {
 		
 		person1.setTaxId(555);
 		
-		
 		System.out.println(person2);
 		
 		((ClassPathXmlApplicationContext)context).close();

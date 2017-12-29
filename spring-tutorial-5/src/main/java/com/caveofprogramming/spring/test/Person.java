@@ -18,6 +18,14 @@ public class Person {
 		
 	}
 	
+	public void onCreate() {
+		System.out.println("Person created: " + this);
+	}
+	
+	public void onDestroy() {
+		System.out.println("Person destroyed.");
+	}
+	
 	public void setAddress(Address address) {
 		this.address = address;
 	}
