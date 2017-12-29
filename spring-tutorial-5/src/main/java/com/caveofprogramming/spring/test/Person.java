@@ -7,6 +7,8 @@ public class Person {
 	
 	private int taxId;
 	
+	private Address address;
+	
 	public Person(int id, String name) {
 		this.id = id;
 		this.name = name;
@@ -16,9 +18,13 @@ public class Person {
 		
 	}
 	
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", taxId=" + taxId + "]";
+		return "Person [id=" + id + ", name=" + name + ", taxId=" + taxId + ", address=" + address + "]";
 	}
 
 	public void speak() {
