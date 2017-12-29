@@ -13,7 +13,10 @@ public class App {
 		
 		person.setTaxId(555);
 		
-		System.out.println(person);
+		//System.out.println(person);
+		
+		Address address2 = (Address)context.getBean("address2");
+		System.out.println(address2);
 		
 		((ClassPathXmlApplicationContext)context).close();
 
