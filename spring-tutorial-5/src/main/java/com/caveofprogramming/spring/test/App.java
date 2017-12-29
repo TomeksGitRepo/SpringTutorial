@@ -9,13 +9,13 @@ public class App {
 		
 		ApplicationContext context  = new ClassPathXmlApplicationContext("com/caveofprogramming/spring/test/beans/beans.xml");
 		
-		Person person = (Person)context.getBean("person");
-		person.speak();
+		Person person1 = (Person)context.getBean("person");	
+		Person person2 = (Person)context.getBean("person");
 		
-		Address address = (Address)context.getBean("address");
-		System.out.println(address);
+		person1.setTaxId(555);
 		
-		System.out.println(person);
+		
+		System.out.println(person2);
 		
 		((ClassPathXmlApplicationContext)context).close();
 

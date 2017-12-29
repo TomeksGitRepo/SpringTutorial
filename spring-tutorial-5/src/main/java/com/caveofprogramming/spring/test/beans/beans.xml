@@ -4,7 +4,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<bean id="person" class="com.caveofprogramming.spring.test.Person">
+	<bean id="person" class="com.caveofprogramming.spring.test.Person"
+		primary="false" scope="prototype">
 		<constructor-arg value="777" name="id" type="int"></constructor-arg>
 		<constructor-arg value="Mary" name="name" type="String">
 		</constructor-arg>
@@ -12,7 +13,7 @@
 		</property>
 		<property name="address" ref="address"></property>
 	</bean>
-	
+
 	<bean id="address" class="com.caveofprogramming.spring.test.Address">
 		<constructor-arg name="street" value="1 Church Lane"></constructor-arg>
 		<constructor-arg name="postcode" value="9876"></constructor-arg>
