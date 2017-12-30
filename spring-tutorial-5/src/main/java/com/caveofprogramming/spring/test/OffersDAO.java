@@ -25,9 +25,8 @@ public class OffersDAO {
 
 	public List<Offer> getOffers() {
 		
-		MapSqlParameterSource params = new MapSqlParameterSource("name", "Sue1");
 		
-		return jdbc.query("select * from offers where name = :name", params, new RowMapper<Offer>() {
+		return jdbc.query("select * from offers", new RowMapper<Offer>() {
 
 			public Offer mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Offer offer = new Offer();
@@ -39,9 +38,41 @@ public class OffersDAO {
 				
 				return offer;
 			}
-			
+		
 		});
+		
+
 
 	}
 	
+	public Offer getOffer(int id) {
+		
+		MapSqlParameterSource params = new MapSqlParameterSource("id", id);
+		
+		return jdbc.queryForObject("select * from offers where id=:id", params, 
+				new RowMapper<Offer>() {
+
+			public Offer mapRow(ResultSet rs, int rowNum) 
+					throws SQLException {
+				Offer offer = new Offer();
+				
+				offer.setId(rs.getInt("id"));
+				offer.setName(rs.getString("name"));
+				offer.setText(rs.getString("text"));
+				offer.setEmail(rs.getString("email"));
+				
+				return offer;
+			}
+			
+		});
+	
+}
+	
+	public Boolean delete(int id) {
+		MapSqlParameterSource params = new MapSqlParameterSource("id", id);
+		
+		return jdbc.update("delete from offers where id=:id", params) == 1;
+		
+		
+	}
 }
