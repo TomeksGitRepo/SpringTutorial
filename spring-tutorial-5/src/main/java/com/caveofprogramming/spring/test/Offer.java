@@ -37,6 +37,25 @@ public class Offer {
 		return "Offer [id=" + id + ", name=" + name + ", email=" + email + ", text=" + text + "]";
 	}
 	
+	public Offer() {
+		
+	}
+	
+	public Offer( String name, String email, String text) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.text = text;
+	}
+	
+	public Offer(int id, String name, String email, String text) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.text = text;
+	}
+	
 	
 	
 }

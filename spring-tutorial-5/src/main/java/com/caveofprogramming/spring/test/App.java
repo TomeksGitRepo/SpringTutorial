@@ -1,6 +1,7 @@
 package com.caveofprogramming.spring.test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -19,7 +20,18 @@ public class App {
 		OffersDAO offersDao = (OffersDAO)context.getBean("offersDao");
 		
 		try {
-			offersDao.delete(3);
+			
+			List<Offer> offers1 = new ArrayList<Offer>();
+			offers1.add(new Offer(3, "Dave", "dave@caveofprogramming.com", "Cash for software."));
+			offers1.add(new Offer(2, "Karen", "karen@caveofprogrming.com", "Elegant web desing"));
+			
+			int [] rvals = offersDao.create(offers1);
+			
+			for (int value: rvals) {
+				System.out.println("Updated " + value + " rows.");
+			}
+			
+			
 			List<Offer> offers = offersDao.getOffers();
 			
 			for (Offer offer: offers) {
