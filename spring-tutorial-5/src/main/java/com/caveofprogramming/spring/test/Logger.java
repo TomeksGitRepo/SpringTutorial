@@ -4,6 +4,9 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.*;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 public class Logger {
 	
@@ -23,10 +26,15 @@ public class Logger {
 	}
 	*/
 
+	
+	@Inject
+	@Named(value="consoleWriter")
 	public void setConsoleWriter(ConsoleWriter writer) {
 		this.consoleWriter = writer;
 	}
 
+	@Inject
+	@Named(value="squirrel")
 	public void setFileWriter(LogWriter fileWriter) {
 		this.fileWriter = fileWriter;
 	}
@@ -40,6 +48,14 @@ public class Logger {
 		{
 		consoleWriter.write(text);
 		}
+	}
+	
+	public void init() {
+		System.out.println("init");
+	}
+	
+	public void destroy() {
+		System.out.println("destroy");
 	}
 	
 	
