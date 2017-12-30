@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Robot {
 
-	private int id = 0;
+	private String id = "Default robot";
 	private String speech = "hello";
 	
 	public void speak() {
@@ -15,12 +15,13 @@ public class Robot {
 	}
 	
 	@Autowired
-	public void setId(@Value("1138") int id) {
+	public void setId( @Value("#{randomText.getText()?.length()}") String id) {
 		this.id = id;
 	}
 	
 	@Autowired
-	public void setSpeech(@Value("I'll be back.") String speech) {
+	// new java.util.Date().toString()
+	public void setSpeech( @Value("#{T(Math).sin(T(Math).PI/4) ^ 2 eq 0.499999999}") String speech) {
 		this.speech = speech;
 	}
 }
