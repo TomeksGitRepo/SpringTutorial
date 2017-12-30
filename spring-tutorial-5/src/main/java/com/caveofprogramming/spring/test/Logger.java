@@ -3,6 +3,7 @@ package com.caveofprogramming.spring.test;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class Logger {
 	
@@ -10,7 +11,7 @@ public class Logger {
 	private ConsoleWriter consoleWriter;
 	
 	//@Autowired
-	private FileWriter fileWriter;
+	private LogWriter fileWriter;
 	
 	
 	/*
@@ -22,13 +23,11 @@ public class Logger {
 	}
 	*/
 
-	@Autowired(required=false)
 	public void setConsoleWriter(ConsoleWriter writer) {
 		this.consoleWriter = writer;
 	}
 
-	@Autowired
-	public void setFileWriter(FileWriter fileWriter) {
+	public void setFileWriter(LogWriter fileWriter) {
 		this.fileWriter = fileWriter;
 	}
 	
