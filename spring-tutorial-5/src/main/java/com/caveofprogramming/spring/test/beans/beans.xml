@@ -4,22 +4,27 @@
 	default-init-method="init" default-destroy-method="destroy"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-	default-autowire="byType"
-	default-autowire-candidates="*Writer">
+	default-autowire="byType">
 
 	<bean id="logger" class="com.caveofprogramming.spring.test.Logger">
 
 	</bean>
 
-	<bean name="consoleWriter" class="com.caveofprogramming.spring.test.ConsoleWriter">
+	<bean name="consoleWriter"
+		class="com.caveofprogramming.spring.test.ConsoleWriter"
+		primary="true">
+	</bean>
+
+	<bean name="panda" class="com.caveofprogramming.spring.test.ConsoleWriter">
 	</bean>
 
 
 	<bean id="fileWriter" class="com.caveofprogramming.spring.test.FileWriter">
 	</bean>
 
-	
-		<bean id="squirrel" class="com.caveofprogramming.spring.test.FileWriter">
+
+	<bean id="squirrel" class="com.caveofprogramming.spring.test.FileWriter"
+		autowire-candidate="false">
 	</bean>
 
 </beans>
