@@ -11,10 +11,9 @@ public class App {
 		
 		ApplicationContext context  = new ClassPathXmlApplicationContext("com/caveofprogramming/spring/test/beans/beans.xml");
 		
-		Logger logger = (Logger)context.getBean("logger");
+		Robot robot = (Robot)context.getBean("robot");
 		
-		logger.writeConsole("Hello there");
-		logger.writeFile("Hi again");
+		robot.speak();
 		
 		((ClassPathXmlApplicationContext)context).close();
 
