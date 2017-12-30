@@ -1,17 +1,20 @@
 package com.caveofprogramming.spring.test;
 
+import java.io.IOException;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		ApplicationContext context  = new ClassPathXmlApplicationContext("com/caveofprogramming/spring/test/beans/beans.xml");
 		
-		Jungle jungle = (Jungle)context.getBean("jungle");
+		Logger logger = (Logger)context.getBean("logger");
 		
-		System.out.println(jungle);
+		logger.writeConsole("Hello there");
+		logger.writeFile("Hi again");
 		
 		((ClassPathXmlApplicationContext)context).close();
 
