@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+<style type="text/css">
+
+.formtable {
+	width: 400px;
+	padding: 10px;
+	border: 1px solid blue;
+}
+
+input [type-text] {
+	width: 150 px;
+	padding-left: 10px;
+}
+
+textarea {
+	width: 180px;
+	height: 300px;
+	
+}
+
+.label {
+
+	text-align: right;
+	vertical-align: top;
+}
+
+.control {
+
+	margin-left: 10px;
+}
+
+.error {
+	font-size: small;
+	color: red;
+	margin-left: 10px;
+}
+
+table, td, tr {
+	padding: 20px;
+	border: 1px solid gray;
+}
+
+</style>
